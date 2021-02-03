@@ -1,0 +1,125 @@
+<nav class="navbar  fixed-top navbar-expand-lg navbar-dark  fixed-top" style="background-color: #202020;">
+  <div class="container">
+    <a class="navbar-brand text-warning"  [routerLink]="['/dashboard1']" routerLinkActive="router-link-active" >Smart Coginitive Medicaid System </a>
+    <button (click)="toggleNav()" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive" [ngClass]="{'show': navToggle}">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link active" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+    </div>
+  </div>
+</nav>
+
+<body>
+  <div class="row">
+    <div class= "col-md-8 offset-md-md-3 mt-4">
+      <div class="container">
+        <div class="card login-card">
+          <div class="row no-gutters">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <div class="brand-wrapper">
+
+                </div>
+                <p class="login-card-description"></p>
+                <form #f="ngForm"
+                (ngSubmit)="onSubmit(f)">
+                    <div class="form-group">
+                      <label for="pname">pname</label>
+                      <input type="text" class="form-control" id="pname"  placeholder="patient name" [readonly]=true value={{patient.pname}}  
+                       name ="pname"  
+                       ngModel required #pname="ngModel">
+                    </div>
+                    <div class="form-group">
+                      <label for="psurname">psurname</label>
+                      <input type="text" class="form-control" id="psurname"  ngModel required #psurname="ngModel" placeholder="patient surname" [readonly]=true value={{patient.psurname}}  name ="psurname">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="age">age</label>
+                      <input type="text" class="form-control" id="age"  ngModel required #age="ngModel" placeholder="age" value={{patient.age}} [readonly]=true  name ="age" >
+                    </div>
+                    <div clsass="form-group">
+                      <label for="mob_no">mob_no</label>
+                      <input type="text" class="form-control" id="mob_no"  ngModel required #mob_no="ngModel" placeholder="mob_no" value={{patient.mob_no}} [readonly]=true  name ="mob_no">
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="date_visited">date_visited</label>
+                      <input type="text" class="form-control" id="date_visited"  ngModel required #date_visited="ngModel" placeholder="date_visited"  [(ngModel)]="history.date_visited" name ="date_visited" required >
+                    </div>
+                    <div class="form-group">
+                      <label for="reason_for_visit">reason_for_visit</label>
+                      <input type="text" class="form-control" id="reason_for_visit"  ngModel required #reason_for_visit="ngModel" placeholder="reason_for_visit"  [(ngModel)]="history.reason_for_visit" name ="reason_for_visit" required >
+                    </div>
+
+                    <div class="form-group">
+                      <label for="symptoms">symptoms</label>
+                      <input type="text" class="form-control" id="symptoms"  ngModel required #symptoms="ngModel" placeholder="symptoms"  [(ngModel)]="history.symptoms" name ="symptoms" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="medicine_Prescribed">medicine_Prescribed</label>
+                      <input type="text" class="form-control" id="medicine_Prescribed"  ngModel required #medicine_Prescribed="ngModel" placeholder="medicine_Prescribed"  [(ngModel)]="history.medicine_Prescribed" name ="medicine_Prescribed" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="allergy_if_any">allergy_if_any</label>
+                      <input type="text" class="form-control" id="allergy_if_any"  ngModel required #allergy_if_any="ngModel" placeholder="allergy_if_any"  [(ngModel)]="history.allergy_if_any" name ="allergy_if_any" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="is_admitted">is_admitted</label>
+                      <input type="text" class="form-control" id="is_admitted"  ngModel required #is_admitted="ngModel" placeholder="is_admitted"  [(ngModel)]="history.is_admitted" name ="is_admitted" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="date_of_admitted">date_of_admitted</label>
+                      <input type="text" class="form-control" id="date_of_admitted"  ngModel required #date_of_admitted="ngModel" placeholder="date_of_admitted"  [(ngModel)]="history.date_of_admitted" name ="date_of_admitted" required>
+                    </div>
+                      <div class="form-group">
+                      <label for="date_of_released">date_of_released</label>
+                      <input type="text" class="form-control" id="date_of_released"  ngModel required #date_of_released="ngModel" placeholder="date_of_released"  [(ngModel)]="history.date_of_released" name ="date_of_released" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="test_Done">test_Done</label>
+                      <input type="text" class="form-control" id="test_Done"  ngModel required #test_Done="ngModel" placeholder="test_Done"  [(ngModel)]="history.test_Done" name ="test_Done" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="hosp_name">hosp_name</label>
+                      <input type="text" class="form-control" id="hosp_name"  ngModel required #hosp_name="ngModel" placeholder="hosp_name"  [(ngModel)]="history.hosp_name" name ="hosp_name" required>
+                    </div>
+                      <div class="form-group">
+                      <label for="doctor_Name">doctor_Name</label>
+                      <input type="text" class="form-control" id="doctor_Name"  ngModel required #doctor_Name="ngModel" placeholder="doctor_Name"  [(ngModel)]="history.doctor_Name" name ="doctor_Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="doctor_Designation">doctor_Designation</label>
+                      <input type="text" class="form-control" id="doctor_Designation"  ngModel  #doctor_Designation="ngModel" placeholder="doctor_Designation"  [(ngModel)]="history.doctor_Designation" name ="doctor_Designation" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="hosp_address">hosp_address</label>
+                      <input type="text" class="form-control" id="hosp_address"  ngModel  #hosp_address="ngModel" placeholder="hosp_address"  [(ngModel)]="history.hosp_address" name ="hosp_address" required >
+                    </div>
+        
+                    <button type="submit"
+                  
+                  class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Add Data</button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+

@@ -1,0 +1,138 @@
+<nav class="navbar  fixed-top navbar-expand-lg navbar-dark  fixed-top" style="background-color: #181818;">
+  <a class="navbar-brand text-warning" [routerLink]="['/homepage']" routerLinkActive="router-link-active" >Smart Coginitive Medicaid System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+      </li>
+
+      <li ngbDropdown class="nav-item dropdown active">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Register
+        </a>
+        <div ngbDropdownMenu class="dropdown-menu  " aria-labelledby="navbarDropdownMenuLink">
+
+          <a class="dropdown-item" [routerLink]="['/register']" routerLinkActive="router-link-active" >Doctor</a>
+          <a class="dropdown-item" [routerLink]="['/registerp']" routerLinkActive="router-link-active" >Patient</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-md-6 d-none d-md-flex bg-image"></div>
+    <div class="col-md-6 " style="background-color: #ffd000;">
+      <div class="Registerp d-flex align-items-center py-5">
+
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-10 col-xl-7 mx-auto ">
+                  <h3 class="display-4">Patient Registration</h3>
+                  <p class="text-muted mb-4">Welcome to Medicaid System.</p>
+      <form #f="ngForm"
+            (ngSubmit)="onSubmit(f)">
+            <div class="form-group">
+              <label for="pname">First Name</label>
+              <input type="text"
+                     name="pname"
+                     ngModel
+                     required
+                     #text="ngModel"
+                     class="form-control"
+                     id="pname"
+                     placeholder="First Name"
+                     [(ngModel)] ="patient.pname">
+          </div>
+          <div class="form-group">
+            <label for="psurname">LastName</label>
+            <input type="text"
+                   name="psurname"
+                   ngModel
+                   required
+                   #email="ngModel"
+                   class="form-control"
+                   id="psurname"
+                   placeholder="Last Name"
+                   [(ngModel)] ="patient.psurname" >
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="text"
+                  name="age"
+                  ngModel
+                  required
+                  #email="ngModel"
+                  class="form-control"
+                  id="age"
+                  placeholder="Enter Age"
+                  [(ngModel)] ="patient.age">
+          </div>
+          <div class="form-group">
+            <label for="mob_no">Mobile</label>
+            <input type="text"
+                  name="mob_no"
+                  ngModel
+                  required
+                  #email="ngModel"
+                  class="form-control"
+                  id="mob_no"
+                  placeholder="Enter Mobile No."
+                  [(ngModel)] ="patient.mob_no">
+          </div>
+          <div class="form-group">
+            <label for="parent_name">Parent Name</label>
+            <input type="text"
+                  name="parent_name"
+                  ngModel
+                  required
+                  #email="ngModel"
+                  class="form-control"
+                  id="parent_name"
+                  placeholder="Enter Parent Name"
+                  [(ngModel)] ="patient.parent_name">
+          </div>
+          <div class="form-group">
+              <label for="emailId">Email</label>
+              <input type="email"
+                     name="emailId"
+                     ngModel
+                     required
+                     #email="ngModel"
+                     class="form-control"
+                     id="emailId"
+                     placeholder="Enter email"
+                     [(ngModel)] ="patient.emailId">
+          </div>
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password"
+                     name="password"
+                     ngModel
+                     required
+                     #password="ngModel"
+                     class="form-control"
+                     id="password"
+                     placeholder="Password"
+                     [(ngModel)] ="patient.password">
+          </div>
+          <div class="form-group">
+            <select class="form-control col-sm-12" name="role" [(ngModel)]="patient.role" required
+              #role="ngModel" [class.is-invalid]="role.invalid && role.touched ">
+              <option>Patient</option>
+            </select>
+          </div>
+
+          <button type="submit"
+                  [disabled]="f.invalid"
+                  class="btn btn-primary">Register <i class="fas fa-sign-in-alt"></i></button>
+      </form>
+
+  </div>
+
+</div>
